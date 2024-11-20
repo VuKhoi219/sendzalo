@@ -3,11 +3,12 @@ const app = express();
 const path = require('path');
 const bodyParser = require('body-parser');
 const zalo = require('./routers/zalo');
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-
 app.get('/', (req, res) => {
-    res.send("helloword")
+    res.render("send");
 });
 app.use('/zalo', zalo);
 
