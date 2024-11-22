@@ -19,7 +19,6 @@ router.get("/send", (req, res) => {
  * @apiSuccess [Object] result.data.message 
  */
 router.post("/send", async (req, res) => {
-
   await zaloController.send(req, res);
 });
 
@@ -41,7 +40,7 @@ router.get("/findUser_id", async (req, res) => {
 router.post("/sendUserFollow", async (req, res) => {
   await zaloController.sendUserFollow(req, res);
 });
-router.post("/newAccessToken", async (req, res) => {
-  await zaloController.newAccessToken(req, res);
-})
+// router.post("/newAccessToken", async (req, res) => {
+//   await zaloController.newAccessToken(req, res);
+// })
 module.exports = router;

@@ -1,15 +1,16 @@
 const express = require('express');
 const app = express();
 const path = require('path');
+const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const zalo = require('./routers/zalo');
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.use(bodyParser.json());
+app.use(cookieParser());
+
 app.use(bodyParser.urlencoded({ extended: true }));
-app.get('/', (req, res) => {
-    res.render("send");
-});
+
 app.use('/zalo', zalo);
 
 app.listen(3000, () => {
